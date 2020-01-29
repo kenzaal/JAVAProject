@@ -1,3 +1,6 @@
 .project
 .classpath
 /target/
+.classpath
+.project
+.setting
