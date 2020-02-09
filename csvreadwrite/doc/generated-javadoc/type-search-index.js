@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"dauphine.csvreadwrite","l":"App"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"dauphine.csvreadwrite","l":"AnonymizationRules"},{"p":"dauphine.csvreadwrite","l":"App"},{"p":"dauphine.csvreadwrite","l":"VerificationRules"}]
