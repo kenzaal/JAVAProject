@@ -53,6 +53,13 @@
 			<version>1.2.17</version>
 		</dependency>
 
+		<!-- https://search.maven.org/remotecontent?filepath=org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

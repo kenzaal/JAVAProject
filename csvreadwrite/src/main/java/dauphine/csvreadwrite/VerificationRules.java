@@ -8,11 +8,15 @@ import org.apache.commons.validator.routines.EmailValidator;
 import java.util.regex.Pattern;
 
 /**
- * @author Kenza SAAL
  * Cette classe contient les règles de Vérification de données
+ * @author Kenza SAAL
  *
  */
 public class VerificationRules {
+	
+	public VerificationRules() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * Vérifie si un l'âge entré en argument est valide. un âge doit
@@ -28,7 +32,7 @@ public class VerificationRules {
 	}
 
 	/**
-	 * Vérifie si un e-mail est de la forme XXX@YYY.ZZ, pour ce faire une expression régulière est utilisée.
+	 * Vérifie si un e-mail est de la forme XXX@YYY.ZZ..
 	 * 
 	 * @param email : Chaîne de caractère qui représente l'email à vérifier.
 	 * @return true si le mail entré en paramètre est correct, false sinon.

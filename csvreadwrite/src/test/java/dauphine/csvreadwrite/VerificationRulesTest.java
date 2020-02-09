@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
+/**
+ * Test unitaire de la classe VerificationRules.
+ */
 public class VerificationRulesTest extends TestCase {
 
 	VerificationRules test = new VerificationRules();
@@ -12,8 +15,8 @@ public class VerificationRulesTest extends TestCase {
 	@Test
 	public void testAge() throws Exception {
 
-		boolean agetest1 = test.age(22);
-		boolean agetest2 = test.age(130);
+		boolean agetest1 = this.test.age(22);
+		boolean agetest2 = this.test.age(126);
 		
 		assertEquals(agetest1, true);
 		assertEquals(agetest2, false);
