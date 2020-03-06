@@ -19,7 +19,7 @@ public class AnonymizationRules {
 	 * @param word : chaîne de carachtère.
 	 * @return chaîne de carachtère modifiée.
 	 */
-	public String rondomLetter(String word) {
+	public static String rondomLetter(String word) {
 		// Intialize a Random Number Generator with SysTime as the seed
 		Random random = new Random(); 
 		int wordLength = word.length();
@@ -43,12 +43,12 @@ public class AnonymizationRules {
 	 * @param email : Chaîne de caractère qui représente l'email à modifier.
 	 * @return mail modifié.
 	 */
-	public String randomLetterForRandomPart(String email) {
+	public static String randomLetterForRandomPart(String email) {
 		String[] temp;
 		String delimiter = "@";
 		
 		temp = email.split(delimiter);
-		String randomDomain = this.rondomLetter(temp[0]);
+		String randomDomain = rondomLetter(temp[0]);
 		
 		String res = randomDomain + "@" + temp[1];
 		
