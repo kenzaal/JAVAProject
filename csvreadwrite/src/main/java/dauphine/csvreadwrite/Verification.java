@@ -36,7 +36,7 @@ public class Verification {
                 for(int i = 0; i < nb_column; i ++) {
                 	String col = colomns[i];
                 	String expected_type = dataToCheck.get(i).type;
-                	ArrayList<String> verifRule = dataToCheck.get(i).verificationRules;
+                	ArrayList<String> verifRule = dataToCheck.get(i).getVerificationRules();
                 	if(DescriptionRules.compare_type(expected_type, col)) {
                 		if(VerificationRules.check(verifRule, col)) {
                 			valide = true;

@@ -104,8 +104,7 @@ public class Data {
 		return list;
 	}
 	
-	public static ArrayList<Column> getAllColumnsInfo(ArrayList<Column> data, String description_file_path, String verification_file_path,
-			String anonymisation_file_path)  {
+	public static ArrayList<Column> getAllColumnsInfo(String description_file_path, String verification_file_path, String anonymisation_file_path)  {
 		ArrayList<Column> descDtat = Data.getdescData(description_file_path);
 		ArrayList<Column> verifData = Data.getverifData(descDtat, verification_file_path);
 		ArrayList<Column> annonymData = Data.getAnnonymData(verifData, anonymisation_file_path);
@@ -113,8 +112,7 @@ public class Data {
 	}
 	
 	public static void main(String[] args) {
-		ArrayList<Column> list = new ArrayList<Column>();
-		ArrayList<Column> data = Data.getAllColumnsInfo(list, "/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_description.json",
+		ArrayList<Column> data = Data.getAllColumnsInfo("/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_description.json",
 				"/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_to_Check.json", "/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_to_anonymize.json");
 	    
 		System.out.println(data.get(0).name);
