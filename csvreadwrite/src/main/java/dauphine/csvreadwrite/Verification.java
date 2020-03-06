@@ -11,7 +11,16 @@ import java.util.ArrayList;
 
 public class Verification {
 	
-	
+	/**
+	 * vérifier la validité des données csv à partir de régles de vérification
+	 * écrire les données vérifiées dans un fichier output;
+	 * @param inputCsvFile
+	 * @param outputCsvFile
+	 * @param description_file_path
+	 * @param verification_file_path
+	 * @param sep
+	 * @throws Exception
+	 */
 	public static void verification(String inputCsvFile, String outputCsvFile, String description_file_path, String verification_file_path, String sep) throws Exception {
         BufferedReader br = null;
         String line = "";
