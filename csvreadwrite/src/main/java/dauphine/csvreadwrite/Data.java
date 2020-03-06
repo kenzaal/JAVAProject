@@ -9,20 +9,28 @@ import org.json.simple.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-/*
+/**
  * Cette classe permet de récupérer toutes les informations relatives au colonnes 
- * à partir des fichiers Json
+ * à partir des fichiers Json.
+ * 
+ * @author Kenza SAAL
  */
 public class Data {
 	
 	
-	
+	/**
+	 * Affiche les informations d'une colonne
+	 * @param: liste de colonnes  
+	 */
 	public static void printListColumn(ArrayList<Column> data) {
 		for(Column e: data)
 			System.out.println(e.toString());
 	}
-	
 
+	/**
+	 * Initialise et atribue nom et type aux colonnes 
+	 * @param: chemin du fichier json 
+	 */
 	public static ArrayList<Column> getdescData(String description_file_path) {
 		ArrayList<Column> list = new ArrayList<Column>();
 		JsonArray descData;
@@ -47,6 +55,14 @@ public class Data {
 		return list;
 	}
 	
+	
+	/**
+	 * obtenir les règles de vérification.
+	 * aléatoire
+	 * 
+	 * @param: JsonArray extrait d'un fichier json
+	 * @return ArrayList<String>
+	 */
 	public static ArrayList<String> getVerificationRules(JsonArray l) {
 		ArrayList<String> ar = new ArrayList<String>();
 		for(JsonElement e: l) {
@@ -57,7 +73,14 @@ public class Data {
 	}
 	
 	
-	
+	/**
+	 * Ajouter les régles de vérification au attributs de colonne. 
+	 * 
+	 * @param ArrayList<Column> list de colonne
+	 * @param String
+	 * @return ArrayList<Column> list de colonne avec l'attribut "verificationRules" modifié.
+	 * 
+	 */
 	public static ArrayList<Column> getverifData(ArrayList<Column> list, String verification_file_path) {
 		JsonArray verifjsondata;
 
@@ -81,6 +104,14 @@ public class Data {
 		return list;
 	}
 	
+	/**
+	 * Ajouter la régle d'annonymisation au attributs de colonne. 
+	 * 
+	 * @param ArrayList<Column> list de colonne
+	 * @param String
+	 * @return ArrayList<Column> list de colonne avec l'attribut "annonymizationRule" modifié.
+	 * 
+	 */
 	public static ArrayList<Column> getAnnonymData(ArrayList<Column> list, String anonymisation_file_path) {
 		JsonArray annonymjsondata;
 
@@ -103,22 +134,15 @@ public class Data {
 		}
 		return list;
 	}
-	
-	public static ArrayList<Column> getAllColumnsInfo(ArrayList<Column> data, String description_file_path, String verification_file_path,
-			String anonymisation_file_path)  {
+	/**
+	 * Renvoie un tableau de Column qui contient toutes les informations relatives au colonnes 
+	 * à partir des fichiers Json.
+	 */
+	public static ArrayList<Column> getAllColumnsInfo(String description_file_path, String verification_file_path, String anonymisation_file_path)  {
 		ArrayList<Column> descDtat = Data.getdescData(description_file_path);
 		ArrayList<Column> verifData = Data.getverifData(descDtat, verification_file_path);
 		ArrayList<Column> annonymData = Data.getAnnonymData(verifData, anonymisation_file_path);
 		return annonymData;
 	}
 	
-	public static void main(String[] args) {
-		ArrayList<Column> list = new ArrayList<Column>();
-		ArrayList<Column> data = Data.getAllColumnsInfo(list, "/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_description.json",
-				"/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_to_Check.json", "/home/kenza/Documents/Master1/Programmation-orientée-objet/Data_to_anonymize.json");
-	    
-		System.out.println(data.get(0).name);
-		
-	   
-}
 }
