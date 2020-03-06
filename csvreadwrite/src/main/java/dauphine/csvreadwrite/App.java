@@ -1,5 +1,7 @@
 package dauphine.csvreadwrite;
 
+import java.util.Scanner;
+
 /**
  * Hello world!
  *
@@ -7,9 +9,6 @@ package dauphine.csvreadwrite;
 public class App 
 {
 	
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-     
-    }
+	
+	
 }

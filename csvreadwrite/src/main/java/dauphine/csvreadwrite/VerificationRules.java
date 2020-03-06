@@ -3,6 +3,7 @@
  */
 package dauphine.csvreadwrite;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import org.apache.commons.validator.routines.EmailValidator;
 import java.util.regex.Pattern;
@@ -25,7 +26,7 @@ public class VerificationRules {
 	 * @param a : un entier qui represente un âge.
 	 * @return true si l'âge entré en paramètre est correct sinon false.
 	 */
-	public boolean age(int age) {
+	public static boolean age(int age) {
 		if (age > 0 && age < 120)
 			return true;
 		return false;
@@ -37,7 +38,7 @@ public class VerificationRules {
 	 * @param email : Chaîne de caractère qui représente l'email à vérifier.
 	 * @return true si le mail entré en paramètre est correct, false sinon.
 	 */
-	public boolean beAnEmail(String email) {
+	public static boolean beAnEmail(String email) {
 
 		EmailValidator validator = EmailValidator.getInstance();
 
@@ -56,7 +57,7 @@ public class VerificationRules {
 	 * @param email : chaîne de caractère qui représente l'email à vérifier.
 	 * @return true si le mail entré en paramètre est correct, false sinon.
 	 */
-	public boolean beADauphineEmail(String email) {
+	public static boolean beADauphineEmail(String email) {
 	
 		String regex1 = "^[\\w\\+]+(\\.[\\w]+)*@dauphine\\.eu$";
 		String regex2 = "^[\\w\\+]+(\\.[\\w]+)*@dauphine\\.psl\\.eu$";
@@ -75,7 +76,40 @@ public class VerificationRules {
 		
 		
 		return false;
-		
+	}
+	
+	/**
+	 * Vérifie un String avec les régles dans la ArrayList.
+	 * 
+	 * @param ArrayList<String> contient les régles de vérification
+	 * @param String à vérifier
+	 * @return true si le String est valide sinon false.
+	 */
+	public static boolean check(ArrayList<String> rules, String str) {
+		boolean valide = true;
+		if(rules != null)
+		for(String e: rules) {
+			if(e.equals("BE_AN_AGE")) {
+				int num = Integer.parseInt(str);
+				if(!VerificationRules.age(num)) {
+					valide = false;
+					System.out.println("la valeur "+ str +"doit être un age");
+				}
+			}
+			if(e.equals("BE_AN_EMAIL")) {
+				valide = false;
+				if(!VerificationRules.beAnEmail(str)) {
+					System.out.println("la valeur "+ str +"doit être un email valide");
+				}
+			}
+			if(e.equals("BE_AN_DAUPHINE_EMAIL")) {
+				valide = false;
+				if(!VerificationRules.beADauphineEmail(str)) {
+					System.out.println("la valeur "+ str +" doit être un email de dauphine");
+				}
+			}
+		}
+		return valide;
 	}
 
 }
