@@ -24,6 +24,3 @@ Projet de Programmation	Objet	avancée.
 - Implémentation de classe d’anonymisation des Données.
 - Mise en place des test unitaires nécessaires.
 
-### Feature 6:
-- Vérifier ET anonymiser en même temps.
-- mettre en place des test unitaires nécessaires.
